@@ -60,8 +60,7 @@ xdebug.idekey=\"VSCODE\"\n\
 xdebug.remote_log=/home/${USER}/xdebug.log\n\
 xdebug.remote_host= " >> /etc/php/7.4/cli/conf.d/20-xdebug.ini
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
 RUN useradd --groups sudo --no-create-home --shell /bin/bash ${USER} \
 	&& echo "${USER} ALL=(ALL) NOPASSWD:ALL" >/etc/sudoers.d/${USER} \
@@ -73,7 +72,7 @@ USER ${USER}
 WORKDIR /home/${USER}/www
 
 
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 RUN sed -i 's/ZSH_THEME="[^"]*"/ZSH_THEME="candy"/' ~/.zshrc
 
@@ -83,5 +82,5 @@ RUN echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # 
 
 RUN sudo chsh -s $(which zsh) ${USER}
 
-RUN sudo apt-get dist-upgrade -y
+# RUN sudo apt-get dist-upgrade -y
 
