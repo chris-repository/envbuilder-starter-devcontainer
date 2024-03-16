@@ -1,27 +1,27 @@
-#FROM php:7.4-fpm
-FROM ubuntu
+# FROM php:7.4-fpm
+# FROM ubuntu
+FROM codercom/enterprise-base:ubuntu
 
-RUN apt-get update 
+# RUN apt-get update 
+# ENV DEBIAN_FRONTEND=noninteractive 
+# ENV TZ=America/Sao_Paulo
 
-ENV DEBIAN_FRONTEND=noninteractive 
-ENV TZ=America/Sao_Paulo
+# RUN bash -c "ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone"
+# RUN apt-get -y install tzdata
 
-RUN bash -c "ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone"
-RUN apt-get -y install tzdata
-
-RUN apt-get install -y \
-	curl \
-	git \
-	golang \
-	sudo \
-	vim \
-	wget \
-	htop \
-	mc \
-	nano \
-	tmux \
-    sqlite3 \
-	software-properties-common fonts-firacode fonts-powerline powerline fonts-hack-ttf zip unzip bash-completion locales zsh locate apt-utils
+# RUN apt-get install -y \
+# 	curl \
+# 	git \
+# 	golang \
+# 	sudo \
+# 	vim \
+# 	wget \
+# 	htop \
+# 	mc \
+# 	nano \
+# 	tmux \
+#     sqlite3 \
+# 	software-properties-common fonts-firacode fonts-powerline powerline fonts-hack-ttf zip unzip bash-completion locales zsh locate apt-utils
 
 # RUN add-apt-repository ppa:ondrej/php -y
 # # RUN locale-gen pt_BR.UTF-8 UTF-8
